@@ -8,19 +8,25 @@ use Projom\Util\File;
 
 class Dir
 {
-    public static function systemPath(string $srcDir = 'src'): string
+    /** 
+     * Returns the system path, the root directory of the project.
+     * Defaults to 'vendor', which is common in Composer-based projects.
+     * 
+     * * @param string $from The directory from which to find the system path.
+     *
+     * * Example: '/home/user/my-webapp.com/vendor/package/src/Util/Dir.php' returns '/home/user/my-webapp.com/'.
+    */
+    public static function systemRoot(string $from = 'vendor'): string
     {
         $dir = __DIR__;
-        $srcPos = strpos($dir, $srcDir);
+        $srcPos = strpos($dir, $from);
         if ($srcPos === false)
             return '';
 
-        $systemDir = rtrim(
-            substr($dir, 0, $srcPos),
-            DIRECTORY_SEPARATOR
-        );
+        $systemPath = substr($dir, 0, $srcPos);
+        $systemPath = rtrim($systemPath, DIRECTORY_SEPARATOR);
 
-        return $systemDir;
+        return $systemPath;
     }
 
     public static function parse(string $fullDirPath): array
