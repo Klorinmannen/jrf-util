@@ -15,7 +15,7 @@ class Dir
      * * @param string $from The directory from which to find the system path.
      *
      * * Example: '/home/user/my-webapp.com/vendor/package/src/Util/Dir.php' returns '/home/user/my-webapp.com/'.
-    */
+     */
     public static function systemRoot(string $from = 'vendor'): string
     {
         $dir = __DIR__;
@@ -76,8 +76,8 @@ class Dir
         return array_diff($fileList, $unwanted);
     }
 
-    public static function prependfullDirPath(string $fullDirPath, array $fileList): array 
+    public static function prependfullDirPath(string $fullDirPath, array $fileList): array
     {
-        return array_map(fn ($file) => $fullDirPath . DIRECTORY_SEPARATOR . $file, $fileList);
+        return array_map(fn($file) => $fullDirPath . DIRECTORY_SEPARATOR . $file, $fileList);
     }
 }
