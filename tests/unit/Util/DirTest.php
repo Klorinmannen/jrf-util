@@ -15,8 +15,8 @@ class DirTest extends TestCase
 	#[Test]
 	public function systemPath(): void
 	{
-		$this->assertNotEmpty(Dir::systemPath());
-		$this->assertEmpty(Dir::systemPath('not_src'));
+		$this->assertNotEmpty(Dir::systemRoot('src'));
+		$this->assertEmpty(Dir::systemRoot('not_src'));
 	}
 
 	public static function parseProvider(): array
@@ -27,8 +27,8 @@ class DirTest extends TestCase
 				'expected' => [
 					'json_file' => ['KEY' => 'value'],
 					'yaml_file' => ['KEY' => 'value'],
-					'text_file' => [0 => 'A text file.'],
-					'empty_text_file' => [0 => ''],
+					'text_file' => 'A text file.',
+					'empty_text_file' => '',
 					'empty_json_file' => []
 				]
 			]
