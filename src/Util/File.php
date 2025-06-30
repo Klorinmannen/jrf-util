@@ -10,8 +10,6 @@ use Projom\Util\Yaml;
 
 class File
 {
-    private array $cache = [];
-
     public static function create(string $fullFilePath): bool
     {
         // If the path is pointing at a directory, cant do much.
@@ -126,14 +124,10 @@ class File
         return $directory;
     }
 
-    public static function parse(string $fullFilePath, bool $useCache = false): null|array
+    public static function parse(string $fullFilePath): null|string|array
     {
         if (!$fullFilePath)
             return [];
-
-        if ($useCache)
-            if ($cachedFile = static::$cache[$fullFilePath] ?? false)
-                return $cachedFile;
 
         $filename = File::name($fullFilePath);
         $extension = File::extension($filename);
@@ -141,17 +135,14 @@ class File
         $parsedFile = match ($extension) {
             'json' => Json::parseFile($fullFilePath),
             'yml', 'yaml' => Yaml::parseFile($fullFilePath),
-            'txt' => [static::read($fullFilePath)],
+            'txt' => static::read($fullFilePath),
             default => null,
         };
-
-        if ($useCache)
-            static::$cache[$fullFilePath] = $parsedFile;
 
         return $parsedFile;
     }
 
-    public static function parseList(array $fileList, bool $useCache = false): array
+    public static function parseList(array $fileList): array
     {
         $parsedFileList = [];
 
@@ -161,7 +152,7 @@ class File
             if (!$isReadable)
                 continue;
 
-            $fileData = static::parse($fullFilePath, $useCache);
+            $fileData = static::parse($fullFilePath);
             $fileName = static::filename($fullFilePath);
             $parsedFileList[$fileName] = $fileData;
         }
