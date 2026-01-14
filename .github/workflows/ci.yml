@@ -8,7 +8,7 @@ on:
 
 jobs:
   unit-tests:
-    name: PHPUnit tests on ubuntu-latest
+    name: PHPUnit
     runs-on: [ubuntu-latest]
     permissions:
       contents: read
