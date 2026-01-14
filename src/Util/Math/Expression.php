@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Projom\Util\Math;
+namespace JRF\Util\Math;
 
 class Expression
 {

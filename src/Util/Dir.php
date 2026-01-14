@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Projom\Util;
+namespace JRF\Util;
 
-use Projom\Util\File;
+use JRF\Util\File;
 
 class Dir
 {

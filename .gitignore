@@ -8,7 +8,7 @@
 !composer.json
 !composer.lock
 !phpunit.xml
-!phpunit_coverage.txt
+!coverage.txt
 
 # White-list entire directories.
 !src/

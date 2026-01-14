@@ -28,10 +28,10 @@ jobs:
         run: composer install --no-interaction --no-progress
 
       - name: Run coverage report
-        run: ./vendor/bin/phpunit --coverage-text="phpunit_coverage.txt" --coverage-html="coverage_html"
+        run: ./vendor/bin/phpunit --coverage-text="coverage.txt" --coverage-html="coverage_html"
 
       - name: Send coverage text to step summary
-        run: cat phpunit_coverage.txt >> $GITHUB_STEP_SUMMARY
+        run: cat coverage.txt >> $GITHUB_STEP_SUMMARY
 
       - name: Create archive for coverage html
         run: tar -czvf coverage_html.tar.gz coverage_html
