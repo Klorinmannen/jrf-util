@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Projom\Util;
+namespace JRF\Util;
 
-use Projom\Util\Dir;
-use Projom\Util\Json;
-use Projom\Util\Yaml;
+use JRF\Util\Dir;
+use JRF\Util\Json;
+use JRF\Util\Yaml;
 
 class File
 {

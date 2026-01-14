@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Projom\Util;
+namespace JRF\Util;
 
-use Projom\Util\Arrays;
-use Projom\Util\Strings;
+use JRF\Util\Arrays;
+use JRF\Util\Strings;
 
 class Sql
 {

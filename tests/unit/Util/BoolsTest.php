@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Projom\Tests\Unit\Util;
+namespace JRF\Tests\Unit\Util;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-use Projom\Util\Bools;
+use JRF\Util\Bools;
 
 class BoolsTest extends TestCase
 {
